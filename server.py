@@ -30,11 +30,14 @@ class irc_server():
             client_socket, client_address = s.accept()
             print(f"Connection from {client_address} has been established.")
             client_socket.send(bytes("Hey there!!!","utf-8"))
-            client_socket.close()
+            msg = client_socket.recv(256)
+            print(msg)
+            # client_socket.close()
+
 
 def main():
     server = irc_server()
-    server.start('127.0.0.1', 55555)
+    server.start('127.0.0.1', 55355)
     
 if __name__ == "__main__":
     main()
