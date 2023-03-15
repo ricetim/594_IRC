@@ -29,7 +29,8 @@ class irc_server():
         while True:
             client_socket, client_address = s.accept()
             print(f"Connection from {client_address} has been established.")
-
+            client_socket.send(bytes("Hey there!!!","utf-8"))
+            client_socket.close()
 
 def main():
     server = irc_server()
